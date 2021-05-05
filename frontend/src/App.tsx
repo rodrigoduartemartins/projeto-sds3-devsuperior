@@ -1,8 +1,8 @@
 import BarChart from "components/BarChart";
-import DataTable from "components/DataTable";
 import DonutChart from "components/DonutChart";
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
+import TableData from "components/TableData";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <h2 className="text-primary"> Todas as vendas </h2>
         </div>
 
-        <DataTable />
+        <TableData />
       </div>
       <Footer />
     </>
