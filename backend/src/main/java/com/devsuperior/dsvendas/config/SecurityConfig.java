@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -26,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
-
+		
 		http.cors().and().csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.authorizeRequests().anyRequest().permitAll();
@@ -40,5 +41,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
 	}
-
 }
